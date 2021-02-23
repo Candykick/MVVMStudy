@@ -1,10 +1,9 @@
 package com.example.ourstocktest.data.service
 
-import com.example.ourstocktest.model.UserAlarmUpdateRequest
-import com.example.ourstocktest.model.UserFcmSaveRequest
-import com.example.ourstocktest.model.UserLoginRequest
-import com.example.ourstocktest.model.UserRegisterRequest
+import com.example.ourstocktest.model.*
+import com.google.gson.JsonObject
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST
 
@@ -36,7 +35,7 @@ interface Api {
     suspend fun registerUserApi(@Body user: UserRegisterRequest): String
 
     @POST("login")
-    suspend fun loginUserApi(@Body phonenumber: UserLoginRequest): String
+    suspend fun loginUserApi(@Body phonenumber: UserLoginRequest): UserLoginResponse//Response<String>
 
     @POST("user/fcm")
     suspend fun saveFcmUserApi(@Body userInfoToken: UserFcmSaveRequest): String//Call<String>
@@ -45,10 +44,8 @@ interface Api {
     suspend fun alarmUpdateUserApi(@Body userAlarmType: UserAlarmUpdateRequest): String
 }
 
-/** 모든 Repository가 사용할 응답용 콜백. */
-interface ApiCallback<T> {
-    fun onSuccess(item: T)
-    fun onFailed(result: String)
-}
 // ApiCallback에서 onFailed에 해당하는 메세지가 없을 경우 출력하는 메세지
 const val API_CALL_ERROR_MESSAGE = "알 수 없는 오류가 발생했습니다."
+
+// API 접속 과정에서 오류가 발생한 경우 Status Code. (즉 인터넷 연결이 끊기거나, 서버가 죽은 경우 등의 이유로 인해, 서버로부터 응답도 받지 못한 상태로 발생한 오류.)
+const val API_CONNECT_ERROR_CODE = 999

@@ -1,15 +1,14 @@
 package com.example.ourstocktest.data.remote
 
 import com.example.ourstocktest.data.service.Api
-import com.example.ourstocktest.model.UserAlarmUpdateRequest
-import com.example.ourstocktest.model.UserFcmSaveRequest
-import com.example.ourstocktest.model.UserLoginRequest
-import com.example.ourstocktest.model.UserRegisterRequest
+import com.example.ourstocktest.model.*
+import com.google.gson.JsonObject
 import retrofit2.Call
+import retrofit2.Response
 
 interface RemoteUserSource {
     suspend fun registerUserApi(user: UserRegisterRequest): String
-    suspend fun loginUserApi(phonenumber: UserLoginRequest): String
+    suspend fun loginUserApi(phonenumber: UserLoginRequest): UserLoginResponse
     suspend fun saveFcmUserApi(userInfoToken: UserFcmSaveRequest): String
     suspend fun alarmUpdateUserApi(userAlarmType: UserAlarmUpdateRequest): String
 }

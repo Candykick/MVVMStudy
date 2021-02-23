@@ -1,19 +1,17 @@
 package com.example.ourstocktest.data.repository
 
 import com.example.ourstocktest.data.remote.RemoteUserSource
-import com.example.ourstocktest.model.UserAlarmUpdateRequest
-import com.example.ourstocktest.model.UserFcmSaveRequest
-import com.example.ourstocktest.model.UserLoginRequest
-import com.example.ourstocktest.model.UserRegisterRequest
-import retrofit2.Call
-import retrofit2.Callback
+import com.example.ourstocktest.data.service.Api
+import com.example.ourstocktest.model.*
+import com.google.gson.Gson
+import com.google.gson.JsonObject
 import retrofit2.Response
 
 interface UserRepository {
     suspend fun register(callNumber: String, telecom: String, username: String,
                          residentRegistrationNumberFront: String, residentRegistrationNumberBack: String) : String
 
-    suspend fun login(phone: String): String
+    suspend fun login(phone: String): UserLoginResponse
 
     suspend fun saveFcm(userId: Int, fcmToken: String): String
 
@@ -28,7 +26,15 @@ class UserRepositoryImpl(private val remoteUserSource: RemoteUserSource) : UserR
         residentRegistrationNumberFront, residentRegistrationNumberBack)
     )
 
-    override suspend fun login(phone: String) = remoteUserSource.loginUserApi(UserLoginRequest(phone))
+    override suspend fun login(phone: String) = remoteUserSource.loginUserApi(UserLoginRequest(phone)) /*{//ApiResponse<UserLoginResponse> {
+        val apiResult: Response<String> = remoteUserSource.loginUserApi(UserLoginRequest(phone))
+
+        return if(apiResult.code() == 200) {
+            ApiResponse(true, Gson().fromJson<UserLoginResponse>(apiResult.body(), UserLoginResponse::class.java), null)
+        } else {
+            ApiResponse(false, null, Gson().fromJson<ErrorResponse>(apiResult.body(), ErrorResponse::class.java))
+        }
+    }*/
 
     override suspend fun saveFcm(userId: Int, fcmToken: String) = remoteUserSource.saveFcmUserApi(
         UserFcmSaveRequest(userId, fcmToken)
