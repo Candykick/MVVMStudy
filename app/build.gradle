@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-android-extensions'
     id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -83,4 +84,11 @@ dependencies {
 
     // Lottie Animation
     implementation 'com.airbnb.android:lottie:3.6.1'
+
+    // Firebase 전화번호 로그인
+    implementation platform('com.google.firebase:firebase-bom:26.2.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation 'androidx.browser:browser:1.2.0'
 }

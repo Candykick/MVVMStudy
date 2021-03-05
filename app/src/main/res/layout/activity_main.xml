@@ -13,52 +13,224 @@
         <import type="android.view.View"/>
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!--<androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent">-->
 
-        <!--<ProgressBar
-            android:visibility="@{viewModel.loading ? View.VISIBLE : View.GONE}"
-            android:id="@+id/pbLoading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>-->
-
-        <EditText
-            android:id="@+id/etPhone"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@={viewModel.phone}"
-            android:inputType="phone"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="20dp"
-            android:layout_marginHorizontal="20dp"/>
-        <!-- 전화번호가 9자~12자 사이의 길이일 때만 활성화됨. -->
-        <Button
-            android:enabled="@{9 &lt;= viewModel.phone.length() &amp;&amp; viewModel.phone.length() &lt;= 12}"
-            android:clickable="@{9 &lt;= viewModel.phone.length() &amp;&amp; viewModel.phone.length() &lt;= 12}"
-            android:focusable="@{9 &lt;= viewModel.phone.length() &amp;&amp; viewModel.phone.length() &lt;= 12}"
-            android:id="@+id/btnLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="로그인"
-            android:onClick="@{()->viewModel.onLoginButtonClick()}"
-            app:layout_constraintTop_toBottomOf="@+id/etPhone"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginTop="20dp"/>
-        <!--"@{viewModel.response.callNumber + ' ' + viewModel.response.username}"-->
-       <TextView
-            android:id="@+id/tvInfo"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:text="@{viewModel.response.callNumber + '\n' + viewModel.response.username + '\n' + viewModel.response.userId}"
-            app:layout_constraintTop_toBottomOf="@+id/btnLogin"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginTop="20dp" />
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true"
+            android:background="@color/indigoDarkDeep">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageButton
+                android:id="@+id/btnSignupBack"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:padding="4dp"
+                android:src="@drawable/ic_baseline_arrow_back_24"
+                android:background="@android:color/transparent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="20dp"/>
+
+            <TextView
+                android:id="@+id/tvSignupName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/signup_name_title"
+                style="@style/Widget.App.TextViewBigTitle"
+                app:layout_constraintTop_toBottomOf="@+id/btnSignupBack"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="36dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"/>
+
+            <LinearLayout
+                android:id="@+id/llSignupLayoutVerify"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/tvSignupName">
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etCerDNumber"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    style="@style/Widget.App.EditTextNormal"
+                    android:inputType="number"
+                    android:maxEms="6"
+                    android:hint="@string/signup_verification_hint"
+                    android:text="@={viewModel.verification}"
+                    android:layout_marginStart="8dp"/>
+
+                <TextView
+                    android:id="@+id/tvCerDTimer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.App.TextViewHint"
+                    android:textSize="20dp"
+                    android:text="@{viewModel.time}"/>
+            </LinearLayout>
+            <View
+                android:id="@+id/lineSignupLayoutVerify"
+                android:visibility="gone"
+                android:background="@color/gray9F"
+                android:layout_width="match_parent"
+                android:layout_height="4px"
+                android:layout_marginHorizontal="20dp"
+                app:layout_constraintTop_toBottomOf="@+id/llSignupLayoutVerify"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etSignupLayoutPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/signup_phone_hint"
+                android:visibility="gone"
+                style="@style/Widget.App.TextInputLayoutNormal"
+                android:theme="@style/Widget.App.TextInputLayoutNormal"
+                app:layout_constraintTop_toBottomOf="@+id/tvSignupName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etSignupPhone"
+                    android:inputType="phone"
+                    android:digits="0123456789-"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@={viewModel.phone}"
+                    android:maxLength="14"
+                    style="@style/Widget.App.EditTextNormal"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etSignupLayoutTelecom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/signup_telecom_hint"
+                android:visibility="gone"
+                style="@style/Widget.App.TextInputLayoutNormal"
+                android:theme="@style/Widget.App.TextInputLayoutNormal"
+                app:layout_constraintTop_toBottomOf="@+id/tvSignupName"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="20dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etSignupTelecom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@={viewModel.telecom}"
+                    android:focusable="false"
+                    android:minEms="7"
+                    style="@style/Widget.App.EditTextNormal"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:id="@+id/llSignupNumber"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@+id/tvSignupName"
+                android:gravity="center_vertical"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/etSignupLayoutNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/signup_number_hint"
+                    style="@style/Widget.App.TextInputLayoutNormal"
+                    android:theme="@style/Widget.App.TextInputLayoutNormal">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etSignupNumber1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@={viewModel.residentNumberFront}"
+                        android:minEms="6"
+                        android:maxLength="6"
+                        android:inputType="number"
+                        style="@style/Widget.App.EditTextNormal"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <TextView
+                    android:id="@+id/tvSignupNumberBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" ━ "
+                    style="@style/Widget.App.TextViewNormal"/>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.App.TextInputLayoutNormal"
+                    android:theme="@style/Widget.App.TextInputLayoutNormal">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etSignupNumber2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@={viewModel.residentNumberBack}"
+                        android:minEms="1"
+                        android:maxLength="1"
+                        android:inputType="number"
+                        style="@style/Widget.App.EditTextNormal"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/signup_number_hide"
+                    style="@style/Widget.App.TextViewHint"/>
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etSignupLayoutName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/signup_name_hint"
+                style="@style/Widget.App.TextInputLayoutNormal"
+                android:theme="@style/Widget.App.TextInputLayoutNormal"
+                app:layout_constraintTop_toBottomOf="@+id/tvSignupName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etSignupName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@={viewModel.username}"
+                    android:inputType="textPersonName"
+                    style="@style/Widget.App.EditTextNormal"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:enabled="false"
+                android:clickable="false"
+                android:focusable="false"
+                android:id="@+id/btnSignupName"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="h, 360:56"
+                android:text="@string/signup_btn"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:background="@drawable/btn_signup_selector"
+                style="@style/Widget.App.Button.NoStyle"
+                android:onClick="@{()->viewModel.onLoginButtonClick()}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    <!--</androidx.core.widget.NestedScrollView>-->
 </layout>

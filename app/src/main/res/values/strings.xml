@@ -1,3 +1,60 @@
 <resources>
     <string name="app_name">OurstockTest</string>
+
+    <!-- 로그인 오류 메세지 모음 -->
+    <string name="err_invalid_request">잘못된 요청 : </string>
+    <string name="err_SMS_quota_exceeded">SMS 발송 제한량이 초과되었습니다. 고객센터에 문의 바랍니다.</string>
+    <string name="err_login_timeout">입력 시간이 초과되었습니다. 인증을 다시 진행해 주세요.</string>
+    <string name="err_no_phone">휴대폰 번호를 입력해주세요.</string>
+    <string name="err_no_code">인증 코드를 입력해주세요.</string>
+    <string name="err_wrong_code">잘못된 인증 코드입니다.</string>
+    <string name="err_unknown">오류 발생 : </string>
+
+    <!-- TelecomBottomDialog -->
+    <string name="telecom_dialog_title">통신사를 선택해주세요</string>
+    <!-- 이동통신사 리스트 -->
+    <string-array name="menu_telecom">
+        <item>SKT</item>
+        <item>KT</item>
+        <item>LG U+</item>
+        <item>SKT 알뜰폰</item>
+        <item>KT 알뜰폰</item>
+        <item>LG U+ 알뜰폰</item>
+    </string-array>
+
+    <!-- CertificationBottomDialog -->
+    <string name="certification_dialog_title">문자로 전송된 인증번호를 입력해주세요!</string>
+    <string name="signup_btn_certification">인증완료</string>
+    <string name="certification_dialog_hint">인증번호 6자리</string>
+    <string name="certification_dialog_reauth">인증문자 다시받기</string>
+    <string name="toast_certification_timer_ends">시간 내에 인증번호를 입력하지 않으셨습니다. 다시 시도해 주세요.</string>
+    <string name="toast_new_certification_number">새로운 인증번호를 전송했습니다.</string>
+    <string name="toast_certification_finished">인증이 완료되었습니다.</string>
+    <string name="toast_certification_failed">올바르지 않은 인증번호입니다.</string>
+
+    <!-- Clause -->
+    <string name="clause_dialog_title">서비스 약관에 동의해주세요</string>
+    <string name="clause_dialog_clause1">아워스톡 필수 항목 모두 동의</string>
+    <string name="clause_dialog_clause2">마케팅 정보 수신 동의 (선택)</string>
+    <string name="clause_dialog_button">시작하기</string>
+    <string name="clause_no_permission">필수 동의 항목에 모두 체크해주세요.</string>
+
+    <!-- SignupActivity -->
+    <string name="signup_name_title">이름을 입력해주세요</string>
+    <string name="signup_name_hint">이름</string>
+    <string name="signup_btn">다음</string>
+    <string name="signup_btn_get_verification">인증번호 받기</string>
+    <string name="signup_btn_re_get_verification">인증번호 다시 받기</string>
+    <string name="signup_btn_finish_verification">인증완료</string>
+    <string name="signup_number_title">주민등록번호를 입력해주세요</string>
+    <string name="signup_number_hint">주민등록번호</string>
+    <string name="signup_number_hide">●●●●●●</string>
+    <string name="signup_telecom_title">통신사를 선택해주세요</string>
+    <string name="signup_telecom_hint">통신사</string>
+    <string name="signup_phone_title">휴대폰번호를 입력해주세요</string>
+    <string name="signup_phone_hint">휴대폰 번호</string>
+    <string name="signup_btn_verify">인증하기</string>
+    <string name="signup_verification_title">인증번호를 입력해주세요</string>
+    <string name="signup_verification_hint">인증번호 4자리</string>
+    <string name="toast_signup_verification_sent">인증번호가 발송되었습니다.</string>
 </resources>

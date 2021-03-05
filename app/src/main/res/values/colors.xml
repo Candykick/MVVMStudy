@@ -5,6 +5,23 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
+
+    <color name="colorPrimary">#FF7C7EFF</color>
+    <color name="colorButtonPrimary">#FF606AF1</color>
+    <color name="colorPrimaryLight">#FF858CEB</color>
+    <!-- 색상을 이름별로 구별 -->
     <color name="black">#FF000000</color>
+    <color name="gray6">#FF666666</color>
+    <color name="gray9">#FF999999</color>
+    <color name="gray9t80">#CC999999</color>
+    <color name="grayB">#FFBBBBBB</color>
+    <color name="grayC4">#FFC4C4C4</color>
+    <color name="gray9F">#FF9F9F9F</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="white5">#0DFFFFFF</color>
+    <color name="white10">#1AFFFFFF</color>
+    <color name="indigo">#FF282D4F</color>
+    <color name="indigoDark">#FF26293B</color><!-- 변경값 : FF161A35-->
+    <color name="indigoDarkDeep">#FF0F1229</color>
+    <color name="red">#FFFF5C63</color>
 </resources>

@@ -1,0 +1,106 @@
+{
+  "project_info": {
+    "project_number": "152036048360",
+    "firebase_url": "https://individualcarbeta.firebaseio.com",
+    "project_id": "individualcarbeta",
+    "storage_bucket": "individualcarbeta.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:152036048360:android:d3569ed537e75b8d1f785d",
+        "android_client_info": {
+          "package_name": "com.example.ourstocktest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "152036048360-qhs6ark7ialv91sq3vvt79pnv3v967dq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ourstocktest",
+            "certificate_hash": "002dac94c9dbf8ea5eb206eeee8748d83f54e270"
+          }
+        },
+        {
+          "client_id": "152036048360-1vgntc8l62tb4peeq1tleh426sd479e5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbEeKC55ngqLvjBZ2PEUlVVHe5CA9RlV0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "152036048360-1vgntc8l62tb4peeq1tleh426sd479e5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:152036048360:android:032191d96e1fb5bd",
+        "android_client_info": {
+          "package_name": "com.indicar.indicar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "152036048360-1vgntc8l62tb4peeq1tleh426sd479e5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbEeKC55ngqLvjBZ2PEUlVVHe5CA9RlV0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "152036048360-1vgntc8l62tb4peeq1tleh426sd479e5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:152036048360:android:5a49116db30513a3",
+        "android_client_info": {
+          "package_name": "com.individualcar.individualcarbeta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "152036048360-1vgntc8l62tb4peeq1tleh426sd479e5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbEeKC55ngqLvjBZ2PEUlVVHe5CA9RlV0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "152036048360-1vgntc8l62tb4peeq1tleh426sd479e5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

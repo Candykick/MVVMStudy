@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:bind="http://schemas.android.com/tools"
+    tools:context=".ClauseActivity">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.ourstocktest.ClauseViewModel" />
+        <variable
+            name="activity"
+            type="com.example.ourstocktest.ClauseActivity" />
+        <import type="android.view.View"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/indigoDarkDeep">
+
+        <ImageButton
+            android:id="@+id/btnClauseBack"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:padding="4dp"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:background="@android:color/transparent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="20dp"/>
+
+        <TextView
+            android:id="@+id/tvClauseTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/clause_dialog_title"
+            style="@style/Widget.App.TextViewBigTitle"
+            app:layout_constraintTop_toBottomOf="@+id/btnClauseBack"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="36dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"/>
+
+        <LinearLayout
+            android:id="@+id/llClause1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:onClick="@{()->activity.showClause(1)}"
+            android:layout_marginHorizontal="23dp"
+            app:layout_constraintTop_toBottomOf="@+id/tvClauseTitle"
+            android:gravity="center_vertical"
+            android:layout_marginTop="65dp">
+            <CheckBox
+                android:enabled="false"
+                android:clickable="false"
+                android:id="@+id/cbClauseCheck1"
+                android:layout_width="18dp"
+                android:layout_height="14dp"
+                android:button="@drawable/row_check_gray"
+                android:buttonTint="#FFFFFF"
+                android:checked="@{viewModel.clauseNcs1}"
+                app:buttonTint="@drawable/row_check_color_selector" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/clause_dialog_clause1"
+                android:textSize="17dp"
+                android:textColor="@color/white"
+                android:layout_marginStart="19dp"/>
+            <ImageView
+                android:src="@drawable/row_right_triangle"
+                android:layout_width="10dp"
+                android:layout_height="15dp"
+                android:layout_marginStart="16.5dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llClause2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:onClick="@{()->activity.showClause(2)}"
+            android:layout_marginHorizontal="23dp"
+            app:layout_constraintTop_toBottomOf="@+id/llClause1"
+            android:gravity="center_vertical"
+            android:layout_marginTop="26dp">
+            <CheckBox
+                android:enabled="false"
+                android:clickable="false"
+                android:id="@+id/cbClauseCheck2"
+                android:layout_width="18dp"
+                android:layout_height="14dp"
+                android:button="@drawable/row_check_gray"
+                android:buttonTint="#FFFFFF"
+                android:checked="@{viewModel.clauseNcs2}"
+                app:buttonTint="@drawable/row_check_color_selector" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/clause_dialog_clause1"
+                android:textSize="17dp"
+                android:textColor="@color/white"
+                android:layout_marginStart="19dp"/>
+            <ImageView
+                android:src="@drawable/row_right_triangle"
+                android:layout_width="10dp"
+                android:layout_height="15dp"
+                android:layout_marginStart="16.5dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llClause3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:onClick="@{()->activity.showClause(3)}"
+            android:layout_marginHorizontal="23dp"
+            app:layout_constraintTop_toBottomOf="@+id/llClause2"
+            android:gravity="center_vertical"
+            android:layout_marginTop="26dp">
+            <CheckBox
+                android:enabled="false"
+                android:clickable="false"
+                android:id="@+id/cbClauseCheck3"
+                android:layout_width="18dp"
+                android:layout_height="14dp"
+                android:button="@drawable/row_check_gray"
+                android:buttonTint="#FFFFFF"
+                android:checked="@{viewModel.clauseOpt1}"
+                app:buttonTint="@drawable/row_check_color_selector" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/clause_dialog_clause2"
+                android:textSize="17dp"
+                android:textColor="@color/white"
+                android:layout_marginStart="19dp"/>
+            <ImageView
+                android:src="@drawable/row_right_triangle"
+                android:layout_width="10dp"
+                android:layout_height="15dp"
+                android:layout_marginStart="16.5dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llClause4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:onClick="@{()->activity.showClause(4)}"
+            android:layout_marginHorizontal="23dp"
+            app:layout_constraintTop_toBottomOf="@+id/llClause3"
+            android:gravity="center_vertical"
+            android:layout_marginTop="26dp">
+            <CheckBox
+                android:enabled="false"
+                android:clickable="false"
+                android:id="@+id/cbClauseCheck4"
+                android:layout_width="18dp"
+                android:layout_height="14dp"
+                android:button="@drawable/row_check_gray"
+                android:buttonTint="#FFFFFF"
+                android:checked="@{viewModel.clauseOpt2}"
+                app:buttonTint="@drawable/row_check_color_selector" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/clause_dialog_clause2"
+                android:textSize="17dp"
+                android:textColor="@color/white"
+                android:layout_marginStart="19dp"/>
+            <ImageView
+                android:src="@drawable/row_right_triangle"
+                android:layout_width="10dp"
+                android:layout_height="15dp"
+                android:layout_marginStart="16.5dp"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnClauseNext"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            style="@style/Widget.App.PrimaryRoundedButton"
+            android:onClick="@{()->activity.gotoNext()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginHorizontal="20dp"
+            android:text="@string/clause_dialog_button"
+            app:layout_constraintDimensionRatio="h, 320:56"
+            android:layout_marginBottom="20dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
