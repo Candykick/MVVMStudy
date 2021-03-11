@@ -14,4 +14,6 @@ val repositoryModule = module {
         CertificationRepositoryImpl(callbacks = callbacks, success = success, failed = failed, activity = activity)
     }
     single<ClauseRepository> { ClauseRepositoryImpl(remoteClauseSource = get()) }
+    single<MainRepository> { MainRepositoryImpl(remoteMainSource = get()) }
+    single<ChannelRepository> { ChannelRepositoryImpl(channelRemoteSource = get()) }
 }

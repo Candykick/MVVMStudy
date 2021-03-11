@@ -22,6 +22,12 @@
     <color name="white10">#1AFFFFFF</color>
     <color name="indigo">#FF282D4F</color>
     <color name="indigoDark">#FF26293B</color><!-- 변경값 : FF161A35-->
+    <color name="indigoBackground">#FF161A35</color>
     <color name="indigoDarkDeep">#FF0F1229</color>
     <color name="red">#FFFF5C63</color>
+
+    <color name="stockUp">#FFFF5C63</color>
+    <color name="stockDown">#FF858CEB</color>
+
+    <color name="TabBackground">#FFF9F9F9</color>
 </resources>

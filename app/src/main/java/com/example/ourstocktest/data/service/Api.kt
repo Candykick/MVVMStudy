@@ -5,6 +5,7 @@ import com.google.gson.JsonObject
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.POST
 
 /* 공부 중인 내용들 정리
@@ -42,10 +43,26 @@ interface Api {
 
     @POST("user/alarm")
     suspend fun alarmUpdateUserApi(@Body userAlarmType: UserAlarmUpdateRequest): String
+
+    @GET("channelList")
+    suspend fun channelListApi(): Response<String>
+
+    @GET("channelInfo")
+    suspend fun channelInfoApi(@Body channelId: ChannelIdRequest): Response<String>
+
+    @GET("channelLiveChart")
+    suspend fun channelLiveChartApi(@Body channelId: ChannelIdRequest): Response<String>
+
+    @GET("channelDayChart")
+    suspend fun channelDayChartApi(@Body channelId: ChannelIdRequest): Response<String>
 }
 
 // ApiCallback에서 onFailed에 해당하는 메세지가 없을 경우 출력하는 메세지
 const val API_CALL_ERROR_MESSAGE = "알 수 없는 오류가 발생했습니다."
+// 인터넷 없음 오류
+const val NO_INTERNET_ERROR_MESSAGE = "인터넷 연결이 불안정합니다. 다시 시도해 주세요."
 
 // API 접속 과정에서 오류가 발생한 경우 Status Code. (즉 인터넷 연결이 끊기거나, 서버가 죽은 경우 등의 이유로 인해, 서버로부터 응답도 받지 못한 상태로 발생한 오류.)
 const val API_CONNECT_ERROR_CODE = 999
+// 인터넷 없음 오류
+const val NO_INTERNET_ERROR_CODE = 1395

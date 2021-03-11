@@ -6,12 +6,13 @@ import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.util.concurrent.TimeUnit
 
 private const val CONNECT_TIMEOUT = 30L
 private const val WRITE_TIMEOUT = 30L
 private const val READ_TIMEOUT = 30L
-private const val BASE_URL = "http://service.ourstock.ga:9090/"
+private const val BASE_URL = "https://my-json-server.typicode.com/Candykick/apitest/"//"http://service.ourstock.ga:9090/"
 
 val networkModule = module {
 
@@ -30,6 +31,7 @@ val networkModule = module {
 
     single {
         Retrofit.Builder().client(get()).baseUrl(BASE_URL)
+            .addConverterFactory(ScalarsConverterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             //.addCallAdapterFactory(RxJava2CallAdapterFactory.create())

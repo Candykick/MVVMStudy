@@ -57,4 +57,41 @@
     <string name="signup_verification_title">인증번호를 입력해주세요</string>
     <string name="signup_verification_hint">인증번호 4자리</string>
     <string name="toast_signup_verification_sent">인증번호가 발송되었습니다.</string>
+
+    <!-- HomeFragment -->
+    <string name="fr_home_title1_1">거래 가능한</string>
+    <string name="fr_home_title1_2">채널</string>
+
+    <!-- MyStockFragment -->
+    <string name="fr_mystock_title1_1">나의</string>
+    <string name="fr_mystock_title1_2">투자</string>
+    <string name="fr_mystock_balance">예치금</string>
+    <string name="fr_money_unit">원</string>
+    <string name="fr_current_money">현재 투자 금액</string>
+    <string name="fr_mystock_my_channel">보유채널</string>
+
+    <!-- ChannelInfoActivity -->
+    <string name="channel_info_tab1">정보</string>
+    <string name="channel_info_tab2">실시간</string>
+    <string name="channel_info_tab3">일별</string>
+    <string name="channel_info_deal_btn">거래하러 가기</string>
+    <string name="channel_info_standard_info">기본 정보</string>
+    <string name="channel_info_channel_value">시가</string>
+    <string name="channel_info_channel_high_value">고가</string>
+    <string name="channel_info_channel_low_value">저가</string>
+    <string name="channel_info_volume">거래량</string>
+    <string name="channel_info_trade_cost">거래대금</string>
+    <string name="channel_info_capitalization">시가총액</string>
+    <string name="channel_info_channel_info">채널 정보</string>
+    <string name="channel_info_shareholder">대주주</string>
+    <string name="channel_info_subscriber_num">구독자 수</string>
+    <string name="channel_info_sum_hits">총 누적 조회수</string>
+    <string name="channel_info_sum_videos">총 영상 개수</string>
+    <string name="channel_info_date">채널 상장일</string>
+    <string name="channel_info_video">채널 소개</string>
+    <string name="channel_info_chart_title1">시간</string>
+    <string name="channel_info_chart_title2">체결가</string>
+    <string name="channel_info_chart_title3">등락</string>
+    <string name="channel_info_chart_title4">거래량</string>
+    <string name="channel_info_chart_title5">날짜</string>
 </resources>

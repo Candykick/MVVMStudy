@@ -20,8 +20,9 @@ class App : Application() {
             androidContext(this@App)
             modules(networkModule, remoteSourceModule, repositoryModule, viewModelModule)
             modules(loadingModule)
+            modules(socketModule)
         }
     }
 
-    fun context(): Context = applicationContext
+    fun context(): Context = instance
 }
